@@ -9,7 +9,7 @@ class TaskInput extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
 
-    this.props.addTask(this.input.value, this.props.tasks)
+    this.props.addTask(this.input.value)
   }
 
   render() {

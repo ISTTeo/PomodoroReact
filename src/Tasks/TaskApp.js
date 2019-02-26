@@ -8,7 +8,21 @@ class TaskApp extends React.Component {
     this.state = {
       tasks: tasksData
     }
+    this.addTask = this.addTask.bind(this)
   }
+
+  addTask(value) {
+    const allTasks = this.state.tasks
+    console.log(allTasks)
+
+    const lastTask = this.state.tasks.slice(-1)[0]
+    const newId = lastTask.id + 1
+    const newTask = {id: newId, name:value, totalTime:"0", sessions: [], todos: []}
+    allTasks.push(newTask)
+    console.log(allTasks)
+    this.setState({todos:allTasks})
+  }
+
   render() {
     const taskItems = this.state.tasks.map(item =>
       <TaskItem
@@ -18,7 +32,7 @@ class TaskApp extends React.Component {
     )
     return(
       <div>
-        <TaskInput />
+        <TaskInput addTask={this.addTask} />
         {taskItems}
       </div>
     )
