@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import StartButton from './StartButton'
 import TimerInput from './TimerInput'

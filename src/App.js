@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
-import TimerApp from './TimerApp'
+import TimerApp from './Timer/TimerApp'
 class App extends Component {
 
 
