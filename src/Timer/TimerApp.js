@@ -11,7 +11,8 @@ class TimerApp extends Component {
       seconds: '00',
       value: '00',
       secondsRemaining: 0,
-      running:false
+      running:false,
+      initialTime:''
     }
 
 
@@ -24,11 +25,13 @@ class TimerApp extends Component {
     const min =  event.target.value
     if (min < 10) {
       this.setState({
-        value: '0' + min
+        value: '0' + min,
+      	initialTime: '0' + min
       })
     } else {
       this.setState({
-        value:min
+        value:min,
+	initialTime: min
       })
     }
   }
@@ -53,6 +56,8 @@ class TimerApp extends Component {
 
     if (min==0 & sec == 0) {
       clearInterval(this.intervalHandle)
+    	alert("ACABOU")
+    
     }
 
     this.setState(prevState => ({
@@ -61,15 +66,17 @@ class TimerApp extends Component {
 
   }
 
-  startCountDown() {
+  startCountDown() { 
     if (!this.state.running) {
       this.intervalHandle = setInterval(this.tick, 1000)
       let time = this.state.value
-      this.setState({
+      
+      //TODO perceber isto
+	    this.setState({
         secondsRemaining: time*60,
         running:true
       })
-      console.log("Running")
+	
     } else {
       clearInterval(this.intervalHandle)
 
@@ -78,7 +85,7 @@ class TimerApp extends Component {
         value:"00",
         seconds:"00"
       })
-      console.log("Cancelled")
+	alert("CANCELLED")
 
     }
 
