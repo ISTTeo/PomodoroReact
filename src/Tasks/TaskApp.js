@@ -66,19 +66,19 @@ class TaskApp extends React.Component {
     if(this.state.currentTask === false) {
 	return(
 		<div>
-			<TaskDisplay task={this.state.currentTask}/>
-        		<TaskInput addTask={this.addTask} />
         		{taskItems}
-		
+	     		<TaskInput addTask={this.addTask} />
+	
 		</div>
 	)
     } else {
     return(
       <div>	
 	<TaskDisplay task={this.state.currentTask}/>
-        <TaskInput addTask={this.addTask} />
+     	<TimerApp task={this.state.currentTask} addTime={this.addTime}/>   
         {taskItems}
-	<TimerApp task={this.state.currentTask} addTime={this.addTime}/>
+	<TaskInput addTask={this.addTask} />
+	
       </div>
     )
     }

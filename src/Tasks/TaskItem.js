@@ -4,8 +4,7 @@ function TaskItem (props) {
   return(
     <div>
       <p>
-      <a onClick={()=> props.selectTask(props.item.id)}>Task:{props.item.name}</a>
-      Time Spent: {props.item.totalTime}
+      <a onClick={()=> props.selectTask(props.item.id)}><b>{props.item.name}</b></a> >>{props.item.totalTime} min
       </p>
     </div>
   )
