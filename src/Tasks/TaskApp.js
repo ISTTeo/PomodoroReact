@@ -10,7 +10,7 @@ class TaskApp extends React.Component {
     super()
     this.state = {
       tasks: tasksData,
-      currentTask: {}
+      currentTask: false
     }
     this.selectTask = this.selectTask.bind(this)
     this.addTask = this.addTask.bind(this)
@@ -62,6 +62,17 @@ class TaskApp extends React.Component {
 	selectTask={this.selectTask}
       />
     )
+    console.log(this.state)
+    if(this.state.currentTask === false) {
+	return(
+		<div>
+			<TaskDisplay task={this.state.currentTask}/>
+        		<TaskInput addTask={this.addTask} />
+        		{taskItems}
+		
+		</div>
+	)
+    } else {
     return(
       <div>	
 	<TaskDisplay task={this.state.currentTask}/>
@@ -70,6 +81,7 @@ class TaskApp extends React.Component {
 	<TimerApp task={this.state.currentTask} addTime={this.addTime}/>
       </div>
     )
+    }
   }
 }
 
