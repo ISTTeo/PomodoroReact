@@ -2,7 +2,7 @@ const tasksData = [
   {
     id:1,
     name: "Cook a duck",
-    totalTime: "120",
+    totalTime: 120,
     sessions: [
       {
         timeSpent: "80",
@@ -30,7 +30,7 @@ const tasksData = [
   {
     id:2,
     name: "Have fun",
-    totalTime: "45",
+    totalTime: 45,
     sessions: [
       {
         timeSpent: "15",

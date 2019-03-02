@@ -3,6 +3,8 @@ import tasksData from './tasksData'
 import TaskItem from './TaskItem'
 import TaskInput from './TaskInput'
 import TaskDisplay from './TaskDisplay'
+import TimerApp from '../Timer/TimerApp'
+
 class TaskApp extends React.Component {
   constructor() {
     super()
@@ -12,6 +14,7 @@ class TaskApp extends React.Component {
     }
     this.selectTask = this.selectTask.bind(this)
     this.addTask = this.addTask.bind(this)
+    this.addTime = this.addTime.bind(this)
   }
 
   addTask(value) {
@@ -33,6 +36,21 @@ class TaskApp extends React.Component {
     this.setState({currentTask: task}) 
   }
 
+  addTime(taskid,time) {
+  //TODO add session with finished or not finished
+	  this.setState(prevState => {
+		const updatedTasks = this.state.tasks.map (task => {
+			if(task.id === taskid.id) {
+				task.totalTime = task.totalTime + time
+			} 
+			return task
+		})
+		return {
+			tasks: updatedTasks
+		}
+	})
+  }
+
   render() {
     const taskItems = this.state.tasks.map(item =>
       <TaskItem
@@ -42,11 +60,11 @@ class TaskApp extends React.Component {
       />
     )
     return(
-      <div>
-	
+      <div>	
 	<TaskDisplay task={this.state.currentTask}/>
         <TaskInput addTask={this.addTask} />
         {taskItems}
+	<TimerApp task={this.state.currentTask} addTime={this.addTime}/>
       </div>
     )
   }
