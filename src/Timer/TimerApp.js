@@ -57,7 +57,7 @@ class TimerApp extends Component {
 
     if (min==0 & sec == 0) {
       clearInterval(this.intervalHandle)
-      this.props.addTime(this.props.task.id, this.state.initialTime)
+      this.props.addTime(this.props.task.id, this.state.initialTime, true)
     }
 
     this.setState(prevState => ({
@@ -86,7 +86,8 @@ class TimerApp extends Component {
         seconds:"00"
       })
 	alert("CANCELLED")
-
+	//TODO should I add cancelled sessions as well?
+	
     }
 
   }
