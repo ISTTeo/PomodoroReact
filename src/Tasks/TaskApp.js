@@ -38,10 +38,19 @@ class TaskApp extends React.Component {
 
   addTime(taskID,time) {
   //TODO add session with finished or not finished
-	  this.setState(prevState => {
+	
+	this.setState(prevState => {
 		const updatedTasks = this.state.tasks.map (task => {
 			if(task.id === taskID) {
 				task.totalTime = task.totalTime + time
+				const session = {timeSpent: time, completed: true}
+				const newSessions = task.sessions
+				const updatedSessions = newSessions.push(session)
+				console.log("Updated sessions")
+				console.log(updatedSessions)
+				console.log("Task 0 sessions")
+				console.log(this.state.tasks[0].sessions)
+
 			} 
 			return task
 		})
@@ -49,6 +58,8 @@ class TaskApp extends React.Component {
 			tasks: updatedTasks
 		}
 	})
+	console.log("Task 0 sessions")
+	console.log(this.state.tasks[0].sessions)
   }
 
   render() {

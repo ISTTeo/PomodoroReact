@@ -5,11 +5,11 @@ const tasksData = [
     totalTime: 120,
     sessions: [
       {
-        timeSpent: "80",
+        timeSpent: 80,
         completed: true
       },
       {
-        timeSpent: "40",
+        timeSpent: 40,
         completed: false
       }
     ],
@@ -33,11 +33,11 @@ const tasksData = [
     totalTime: 45,
     sessions: [
       {
-        timeSpent: "15",
+        timeSpent: 15,
         completed: true
       },
       {
-        timeSpent: "30",
+        timeSpent: 30,
         completed: false
       }
     ],
