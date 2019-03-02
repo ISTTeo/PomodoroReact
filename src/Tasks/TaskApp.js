@@ -36,11 +36,11 @@ class TaskApp extends React.Component {
     this.setState({currentTask: task}) 
   }
 
-  addTime(taskid,time) {
+  addTime(taskID,time) {
   //TODO add session with finished or not finished
 	  this.setState(prevState => {
 		const updatedTasks = this.state.tasks.map (task => {
-			if(task.id === taskid.id) {
+			if(task.id === taskID) {
 				task.totalTime = task.totalTime + time
 			} 
 			return task

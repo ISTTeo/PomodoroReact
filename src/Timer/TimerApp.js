@@ -23,15 +23,16 @@ class TimerApp extends Component {
 
   handleChange(event) {
     const min =  event.target.value
-    if (min < 10) {
+    const minx = parseInt(min)
+	  if (min < 10) {
       this.setState({
         value: '0' + min,
-      	initialTime: '0' + min
+      	initialTime: minx
       })
     } else {
       this.setState({
         value:min,
-	initialTime: min
+	initialTime: parseInt(min)
       })
     }
   }
@@ -56,8 +57,7 @@ class TimerApp extends Component {
 
     if (min==0 & sec == 0) {
       clearInterval(this.intervalHandle)
-    	alert("ACABOU")
-    
+      this.props.addTime(this.props.task.id, this.state.initialTime)
     }
 
     this.setState(prevState => ({
